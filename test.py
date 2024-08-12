@@ -193,18 +193,18 @@ def apply_pca(df, n_components=2):
     pca_data = pca.fit_transform(df)
     return pd.DataFrame(pca_data)
 
-# Autoencoder
-def apply_autoencoder(df, encoding_dim=3):
-    input_dim = df.shape[1]
-    input_layer = Input(shape=(input_dim,))
-    encoded = Dense(encoding_dim, activation='relu')(input_layer)
-    decoded = Dense(input_dim, activation='sigmoid')(encoded)
-    autoencoder = Model(input_layer, decoded)
-    autoencoder.compile(optimizer='adam', loss='mean_squared_error')
-    autoencoder.fit(df, df, epochs=50, batch_size=256, shuffle=True, verbose=0)
-    encoder = Model(input_layer, encoded)
-    encoded_data = encoder.predict(df)
-    return pd.DataFrame(encoded_data)
+# # Autoencoder
+# def apply_autoencoder(df, encoding_dim=3):
+#     input_dim = df.shape[1]
+#     input_layer = Input(shape=(input_dim,))
+#     encoded = Dense(encoding_dim, activation='relu')(input_layer)
+#     decoded = Dense(input_dim, activation='sigmoid')(encoded)
+#     autoencoder = Model(input_layer, decoded)
+#     autoencoder.compile(optimizer='adam', loss='mean_squared_error')
+#     autoencoder.fit(df, df, epochs=50, batch_size=256, shuffle=True, verbose=0)
+#     encoder = Model(input_layer, encoded)
+#     encoded_data = encoder.predict(df)
+#     return pd.DataFrame(encoded_data)
 
 # plotting
 def plot_data(df, title):
@@ -386,7 +386,7 @@ def main():
     st.sidebar.write('Select Method')
     use_z_score = st.sidebar.checkbox('Z-Score Normalization')
     use_pca = st.sidebar.checkbox('PCA')
-    use_autoencoder = st.sidebar.checkbox('Autoencoder')
+    # use_autoencoder = st.sidebar.checkbox('Autoencoder')
 
     if st.button('Analyzing Start'):
         if not all_selected_files:
@@ -408,10 +408,10 @@ def main():
                         plot_data(df_pca, 'PCA Analysis')
                         results.append('PCA Analysis completed')
 
-                    if use_autoencoder:
-                        df_autoencoder = apply_autoencoder(df_preprocessed)
-                        plot_data(df_autoencoder, 'Autoencoder Analysis')
-                        results.append('Autoencoder Analysis completed')
+                    # if use_autoencoder:
+                    #     df_autoencoder = apply_autoencoder(df_preprocessed)
+                    #     plot_data(df_autoencoder, 'Autoencoder Analysis')
+                    #     results.append('Autoencoder Analysis completed')
 
                     if results:
                         st.success(' and '.join(results))
