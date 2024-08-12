@@ -9,7 +9,7 @@ certifi==2024.2.2
 charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
-contourpy==1.1.1
+contourpy==1.0.7  # 버전을 낮춤
 cycler==0.12.1
 finance-datareader==0.9.90
 flatbuffers==24.3.25
@@ -28,8 +28,11 @@ jsonschema==4.21.1
 keras==2.13.1
 kiwisolver==1.4.5
 Markdown==3.6
+markdown-it-py==3.0.0
+MarkupSafe==2.1.5
 matplotlib==3.7.5
-numpy==1.24.3
+mdurl==0.1.2
+numpy==1.26.0  # 버전을 올림
 pandas==2.0.3
 patsy==0.5.6
 pillow==10.3.0
@@ -61,3 +64,4 @@ watchdog==4.0.0
 Werkzeug==3.0.2
 wrapt==1.16.0
 zipp==3.18.1
+setuptools==65.5.1  # distutils 문제 해결을 위해 추가
