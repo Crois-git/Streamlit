@@ -224,7 +224,7 @@ def plot_data(df, title):
     st.pyplot(fig)
 
 def main():
-    image_url = "C:/Users/slsld/Streamlit/111.png"
+    image_url = "111.png"
     st.image(image_url, use_column_width=True)    
     st.markdown("""
         <style>
@@ -240,11 +240,11 @@ def main():
 
     st.markdown("""<style>.subtitle{text-align:center;font-size:17px;font-style: italic;}</style><div class="subtitle">Data Processing and Analysis Application</div>""", unsafe_allow_html=True)
  
-    image_url2 = "C:/Users/slsld/Streamlit/222.png"
+    image_url2 = "222.png"
     st.sidebar.image(image_url2, use_column_width=False)    
     st.sidebar.title("File and Settings")
 
-    folder_path = st.sidebar.text_input('Folder Path', value='C:/Users/slsld/Streamlit')
+    folder_path = st.sidebar.text_input('Folder Path', value='C:/Users/')
 
     file_list = list_csv_files(folder_path)
     if st.sidebar.button('Update File List'):
