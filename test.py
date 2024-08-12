@@ -7,8 +7,6 @@ import tempfile
 from glob import glob
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
-from keras.layers import Input, Dense
-from keras.models import Model
 from scipy.signal import stft
 from PIL import Image
 
